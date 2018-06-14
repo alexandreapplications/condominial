@@ -16,9 +16,11 @@ export class SubscribeComponent implements OnInit {
 
   private createForm() {
     this.subscribeForm = this._formBuilder.group({
-      name: ['', Validators.required, Validators.minLength(8)],
-      email: ['', Validators.email, Validators.required],
-      birthDate: [new Date(), Validators.required]
+      name: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+      email: ['', Validators.compose([Validators.email, Validators.required])],
+      birthDate: [new Date(), Validators.required],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+      confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     });
   }
   ngOnInit() {

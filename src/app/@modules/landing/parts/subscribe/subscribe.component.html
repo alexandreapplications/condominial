@@ -1,1 +1,32 @@
-<p>Subscribe works</p>
+<form [formGroup]="subscribeForm">
+    <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" i18n-placeholder="Name|Subscribe Name@@subscribeName" />
+        <mat-error *ngIf="subscribeForm.get('name').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
+        <mat-error *ngIf="subscribeForm.get('name').hasError('minlength')" i18n="Validation too short|This field is too short@@shortField">This field is too short</mat-error>
+    </mat-form-field>
+    <div class="form-group">
+      <label class="center-block"><span i18n="name|Subscribe Name@@subscribeName">Name</span>:
+        <input class="form-control" formControlName="name">
+      </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block"><span i18n="email|Subscribe Email@@subscribeEmail">Email</span>:
+          <input class="form-control" formControlName="email">
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block"><span i18n="birthDate|Subscribe Birth Date@@subscribeBirthDate">Birth Date</span>:
+          <input class="form-control" formControlName="birthDate">
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block"><span i18n="password|Subscribe Password@@subscribePassword">Password</span>:
+          <input class="form-control" formControlName="password">
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block"><span i18n="confirmPassword|Subscribe Confirm Password@@subscribeConfirmPassword">Confirm Password</span>:
+          <input class="form-control" formControlName="confirmPassword">
+        </label>
+      </div>
+</form>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="IndexWorksTitleLiteral" datatype="html">
+        <source>
+        index works!
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/index/index.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="subscribeName" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/parts/subscribe/subscribe.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Subscribe Name</note>
+        <note priority="1" from="meaning">name</note>
+      </trans-unit>
+      <trans-unit id="subscribeEmail" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/parts/subscribe/subscribe.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Subscribe Email</note>
+        <note priority="1" from="meaning">email</note>
+      </trans-unit>
+      <trans-unit id="subscribeBirthDate" datatype="html">
+        <source>Birth Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/parts/subscribe/subscribe.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Subscribe Birth Date</note>
+        <note priority="1" from="meaning">birthDate</note>
+      </trans-unit>
+      <trans-unit id="subscribePassword" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/parts/subscribe/subscribe.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Subscribe Password</note>
+        <note priority="1" from="meaning">password</note>
+      </trans-unit>
+      <trans-unit id="subscribeConfirmPassword" datatype="html">
+        <source>Confirm Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/@modules/landing/parts/subscribe/subscribe.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Subscribe Confirm Password</note>
+        <note priority="1" from="meaning">confirmPassword</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
