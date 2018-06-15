@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
+import { CommonDataServiceService } from './@services/common-data-service.service';
+import { HttpClient } from '@angular/common/http';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 
@@ -17,10 +19,12 @@ registerLocaleData(localePt, 'pt', localePtExtra);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClient
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt' }
+    { provide: LOCALE_ID, useValue: 'pt' },
+    CommonDataServiceService
   ],
   bootstrap: [AppComponent]
 })
