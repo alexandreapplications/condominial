@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  urls: {
+    cep: 'https://restcountries.eu/rest/v2/all'
+  }
 };

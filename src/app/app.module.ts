@@ -8,7 +8,8 @@ import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
 import { CommonDataServiceService } from './@services/common-data-service.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConnectionInterceptor } from './@core/connection-interceptor';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 
@@ -20,10 +21,15 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClient
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ConnectionInterceptor,
+      multi: true
+    },
     CommonDataServiceService
   ],
   bootstrap: [AppComponent]
