@@ -10,6 +10,7 @@ import { registerLocaleData } from '@angular/common';
 import { CommonDataServiceService } from './@services/common-data-service.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConnectionInterceptor } from './@core/connection-interceptor';
+import { SecurityService } from './@services/security.service';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 
@@ -30,7 +31,8 @@ registerLocaleData(localePt, 'pt', localePtExtra);
       useClass: ConnectionInterceptor,
       multi: true
     },
-    CommonDataServiceService
+    CommonDataServiceService,
+    SecurityService
   ],
   bootstrap: [AppComponent]
 })

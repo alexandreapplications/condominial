@@ -4,7 +4,7 @@ import { IndexComponent } from './index/index.component';
 import { UtilityModule } from '../utility/utility.module';
 import { LandingRoutingModule } from './landing-routing.module';
 import { CondominiumComponent } from './condominium/condominium.component';
-import { MatCardModule, MatDialogModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatDialogModule, MatButtonModule, MatAutocompleteModule, MatSnackBarModule } from '@angular/material';
 import { SubscribeComponent } from './parts/subscribe/subscribe.component';
 import { LoginComponent } from './parts/login/login.component';
 
@@ -15,7 +15,9 @@ import { LoginComponent } from './parts/login/login.component';
     LandingRoutingModule,
     MatCardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatSnackBarModule
   ],
   declarations: [IndexComponent, CondominiumComponent, SubscribeComponent, LoginComponent]
 })
