@@ -9,9 +9,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class SubscribeDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<SubscribeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+     }
 
     onNoClick(): void {
+      console.warn('Teste');
       this.dialogRef.close();
     }
   ngOnInit() {
