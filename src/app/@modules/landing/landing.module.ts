@@ -5,7 +5,6 @@ import { UtilityModule } from '../utility/utility.module';
 import { LandingRoutingModule } from './landing-routing.module';
 import { CondominiumComponent } from './condominium/condominium.component';
 import { MatCardModule, MatButtonModule, MatAutocompleteModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
-import { SubscribeComponent } from './parts/subscribe/subscribe.component';
 import { LoginComponent } from './parts/login/login.component';
 
 @NgModule({
@@ -19,6 +18,6 @@ import { LoginComponent } from './parts/login/login.component';
     MatSnackBarModule,
     MatDialogModule
   ],
-  declarations: [IndexComponent, CondominiumComponent, SubscribeComponent, LoginComponent]
+  declarations: [IndexComponent, CondominiumComponent, LoginComponent]
 })
 export class LandingModule { }
