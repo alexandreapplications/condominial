@@ -14,7 +14,6 @@ export class IndexComponent implements OnInit {
   subscribe() {
     this.dialog.open(SubscribeDialogComponent, {
       width: '500px',
-      height: '500px',
       data: { teste: true }
     });
   }
