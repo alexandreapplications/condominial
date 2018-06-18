@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SubscribeComponent } from './subscribe.component';
+import { UtilityModule } from '../../../utility/utility.module';
+import { MatCardModule, MatButtonModule, MatAutocompleteModule, MatSnackBarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SubscribeComponent', () => {
   let component: SubscribeComponent;
@@ -8,7 +12,14 @@ describe('SubscribeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubscribeComponent ]
+      declarations: [ SubscribeComponent ],
+      imports: [ UtilityModule,
+        MatCardModule,
+        MatButtonModule,
+        MatAutocompleteModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        BrowserAnimationsModule ]
     })
     .compileComponents();
   }));

@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { SecurityService } from './security.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('SecurityService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SecurityService]
+      providers: [SecurityService],
+      imports: [HttpClientModule]
     });
   });
 

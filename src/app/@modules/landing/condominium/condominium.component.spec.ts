@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CondominiumComponent } from './condominium.component';
+import { ExternalFrameComponent } from '../../utility/external-frame/external-frame.component';
+import { UtilityModule } from '../../utility/utility.module';
 
 describe('CondominiumComponent', () => {
   let component: CondominiumComponent;
@@ -8,7 +10,8 @@ describe('CondominiumComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CondominiumComponent ]
+      declarations: [ CondominiumComponent ],
+      imports: [ UtilityModule ]
     })
     .compileComponents();
   }));
