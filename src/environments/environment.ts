@@ -6,6 +6,7 @@
 export const environment = {
   production: false,
   urls: {
-    cep: { url: 'https://restcountries.eu/rest/v2/all', cache: true }
+    cep: { url: 'https://restcountries.eu/rest/v2/all', cache: true },
+    appSecurity: { url: 'http://localhost:3000', cache: false }
   }
 };

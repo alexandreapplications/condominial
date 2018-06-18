@@ -6,41 +6,45 @@
   <mat-card-content>
     <form [formGroup]="subscribeForm">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name" formControlName="name" i18n-placeholder="Name|Subscribe Name@@subscribeName" />
+        <input matInput placeholder="Name" formControlName="name" i18n-placeholder="Name|Subscribe Name@@subscribeName" autocomplete="name" />
         <mat-error *ngIf="subscribeForm.get('name').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
         <mat-error *ngIf="subscribeForm.get('name').hasError('minlength')" i18n="Validation too short|This field is too short@@shortField">This field is too short</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input type="email" matInput placeholder="Email" formControlName="email" i18n-placeholder="Email|Subscribe Email@@subscribeEmail"
+        <input type="email" matInput placeholder="Email" formControlName="email" i18n-placeholder="Email|Subscribe Email@@subscribeEmail" autocomplete="email"
         />
         <mat-error *ngIf="subscribeForm.get('email').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
         <mat-error *ngIf="subscribeForm.get('email').hasError('email')" i18n="Validation Invalid Email|Email Invalid@@invalidEmail">This email is invalid</mat-error>
       </mat-form-field>
       <mat-form-field class="left-width">
-        <input type="date" matInput placeholder="Birth Date" formControlName="birthDate" i18n-placeholder="BirthDate|Subscribe BirthDate@@subscribeBirthDate"
+        <input type="date" matInput placeholder="Birth Date" formControlName="birthDate" i18n-placeholder="BirthDate|Subscribe BirthDate@@subscribeBirthDate" autocomplete="bday"
         />
         <mat-error *ngIf="subscribeForm.get('birthDate').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
       </mat-form-field>
       <mat-form-field class="right-width">
           <input type="text" matInput placeholder="Country" formControlName="country" i18n-placeholder="Country|Subscribe Country@@subscribeCountry"
-          />
+          [matAutocomplete]='countryAutocomplete' />
+          <mat-autocomplete #countryAutocomplete="matAutocomplete" autoActiveFirstOption>
+            <mat-option *ngFor="let item of filteredOptions | async" [value]='item.name' >{{ item.name }}</mat-option>
+          </mat-autocomplete>
           <mat-error *ngIf="subscribeForm.get('country').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
         </mat-form-field>
         <mat-form-field class="left-width">
         <input type="password" matInput placeholder="Password" formControlName="password" i18n-placeholder="Password|Subscribe Password@@subscribePassword"
         />
         <mat-error *ngIf="subscribeForm.get('password').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
+        <mat-error *ngIf="subscribeForm.get('password').hasError('minlength')" i18n="Password less than 8 characters|Password Too short@@shortPassword">The password must have at least 8 characters</mat-error>
       </mat-form-field>
       <mat-form-field class="right-width">
         <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword" i18n-placeholder="Confirm Password|Subscribe Confirm Password@@subscribeConfirmPassword"
         />
         <mat-error *ngIf="subscribeForm.get('confirmPassword').hasError('required')" i18n="Validation Required|This field is required@@requiredField">This field is required</mat-error>
+        <mat-error *ngIf="!subscribeForm.get('confirmPassword').hasError('required') && subscribeForm.get('password').value !== subscribeForm.get('confirmPassword').value">Passwords don't match.</mat-error>
       </mat-form-field>
-
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button i18n="Confirm|Confirm subscription@@subscriptionConfirm">Confirm</button>
+    <button mat-button i18n="Confirm|Confirm subscription@@subscriptionConfirm" color="primary" [disabled]="subscribeForm.invalid" (click)="doSubscribeForm()"><i class="material-icons">save</i>Confirm</button>
     <button mat-button i18n="Abort|Abort subscription@@subscriptionAbort">Cancel</button>
   </mat-card-actions>
 </mat-card>

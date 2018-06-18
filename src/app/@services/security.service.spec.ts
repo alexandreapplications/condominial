@@ -1,17 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CommonDataServiceService } from './common-data-service.service';
+import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('CommonDataServiceService', () => {
+describe('SecurityService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CommonDataServiceService],
+      providers: [SecurityService],
       imports: [HttpClientModule]
     });
   });
 
-  it('should be created', inject([CommonDataServiceService], (service: CommonDataServiceService) => {
+  it('should be created', inject([SecurityService], (service: SecurityService) => {
     expect(service).toBeTruthy();
   }));
 });

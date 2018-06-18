@@ -1,3 +1,13 @@
 {
-    "users": []
+  "users": [
+    {
+      "id": "3b9b565b-55db-5234-a20d-ad3c8a74298b",
+      "login": "at.sampaio@gmail.com",
+      "birthDate": "1977-07-12",
+      "country": "Brazil",
+      "name": "ALEXANDRE TORRES SAMPAIO",
+      "subscribeDate": "2018-06-17T19:14:19.119Z",
+      "personId": null
+    }
+  ]
 }
