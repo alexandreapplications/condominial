@@ -9,8 +9,9 @@ export class IndexComponent implements OnInit {
 
   constructor() { }
 
-  public agora = new Date();
-  public valor = 863464.45;
+  subscribe() {
+    console.warn('subscribe');
+  }
   ngOnInit() {
   }
 
