@@ -23,6 +23,7 @@ import { SubscribeDialogComponent } from './dialog/subscribe-dialog/subscribe-di
   ],
   exports: [
     ExternalFrameComponent, CenterContentComponent,
+    MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
