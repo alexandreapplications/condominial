@@ -43,9 +43,21 @@ export class SubscribeDialogComponent implements OnInit {
   }
 
   save() {
-    this._snackBar.open('You are now subscribed.', 'Confirmation', { duration: 1000 });
-    this.dialogRef.close();
+    if (this.subscribeForm.valid) {
+      const subscribeData: SubscribeViewModel = this.subscribeForm.value;
+      this._securityService.doCreateSubscription(subscribeData).then(response => {
+        if (response) {
+          this._snackBar.open('You are now subscribed.', 'Confirmation', { duration: 2000 });
+          this.dialogRef.close();
+        }
+      }).catch(error => {
+        error.errors.forEach(element => {
+          this._snackBar.open(element);
+        });
+      });
+    }
   }
+
   filter(val: string): Array<CountryModel> {
     return this.allCountries.filter(option =>
       option.name.toLowerCase().includes(val.toLowerCase()));

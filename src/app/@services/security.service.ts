@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SubscribeViewModel } from '../@models/@security/subscribeViewModel';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserModel } from '../@models/@security/userModel';
+import { ProcessResponseModel } from '../@models/@common/processResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +37,14 @@ export class SecurityService {
             this._http.post('{appSecurity}/users/', userModel).toPromise().then(x => {
               resolve(true);
             }).catch(error => {
-              reject(error);
+              if (error instanceof HttpErrorResponse) {
+                reject(new ProcessResponseModel('ErrorResponse', [error.message], [], error));
+              } else {
+                reject(new ProcessResponseModel('UnidentifiedError', ['Unidentified error'], []));
+              }
             });
           } else {
-            reject('User already exists');
+              reject(new ProcessResponseModel('UserAlreadyExist', ['User already exists']));
           }
         }).catch(error => {
           reject(error);
