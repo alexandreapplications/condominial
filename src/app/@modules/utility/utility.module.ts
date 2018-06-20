@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ExternalFrameComponent } from './external-frame/external-frame.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UtilityRoutingModule } from './utility-routing.module';
-import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule, 
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule,
   MatButtonModule, MatAutocompleteModule } from '@angular/material';
-import { CenterContentComponent } from './center-content/center-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribeDialogComponent } from './dialog/subscribe-dialog/subscribe-dialog.component';
 import { InternalFrameComponent } from './internal-frame/internal-frame.component';
@@ -23,7 +22,8 @@ import { InternalFrameComponent } from './internal-frame/internal-frame.componen
     MatAutocompleteModule
   ],
   exports: [
-    ExternalFrameComponent, CenterContentComponent,
+    InternalFrameComponent,
+    ExternalFrameComponent,
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
@@ -32,6 +32,6 @@ import { InternalFrameComponent } from './internal-frame/internal-frame.componen
     MatButtonModule
   ],
   entryComponents: [SubscribeDialogComponent],
-  declarations: [ExternalFrameComponent, NotFoundComponent, CenterContentComponent, SubscribeDialogComponent, InternalFrameComponent]
+  declarations: [ExternalFrameComponent, NotFoundComponent, SubscribeDialogComponent, InternalFrameComponent]
 })
 export class UtilityModule { }
