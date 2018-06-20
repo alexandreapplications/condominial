@@ -8,6 +8,7 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule,
 import { CenterContentComponent } from './center-content/center-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribeDialogComponent } from './dialog/subscribe-dialog/subscribe-dialog.component';
+import { InternalFrameComponent } from './internal-frame/internal-frame.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,6 @@ import { SubscribeDialogComponent } from './dialog/subscribe-dialog/subscribe-di
     MatButtonModule
   ],
   entryComponents: [SubscribeDialogComponent],
-  declarations: [ExternalFrameComponent, NotFoundComponent, CenterContentComponent, SubscribeDialogComponent]
+  declarations: [ExternalFrameComponent, NotFoundComponent, CenterContentComponent, SubscribeDialogComponent, InternalFrameComponent]
 })
 export class UtilityModule { }
