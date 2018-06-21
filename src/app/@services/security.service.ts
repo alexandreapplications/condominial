@@ -15,7 +15,29 @@ export class SecurityService {
   // Instantiate Chance so it can be used
   chance = new this.ChanceModule();
 
+  userModel: UserModel;
+
   constructor(private _http: HttpClient) { }
+
+  logon(login: string, senha: string): Promise<UserModel> {
+    return new Promise<UserModel>((resolve, reject) => {
+      this._http.get<Array<UserModel>>(`{appSecurity}/users/?login=${login}`).toPromise()
+        .then(response => {
+          if (response.length === 0) {
+            reject(new ProcessResponseModel('UserAlreadyExist', ['User already exists']));
+          } else {
+            this.userModel = response[0];
+            resolve(this.userModel);
+          }
+        }).catch(error => {
+          reject(new ProcessResponseModel('ErrorResponse', [error.message], [], error));
+        });
+    });
+  }
+
+  get isAuthenticated(): boolean {
+    return true;
+  }
 
   doCreateSubscription(_subscribeData: SubscribeViewModel): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
@@ -31,7 +53,7 @@ export class SecurityService {
         subscribeDate: new Date(),
         personId: null
       };
-      this._http.get<Array<UserModel>>(`{appSecurity}/users/?login=${ _subscribeData.email }`).toPromise()
+      this._http.get<Array<UserModel>>(`{appSecurity}/users/?login=${_subscribeData.email}`).toPromise()
         .then(response => {
           if (response.length === 0) {
             this._http.post('{appSecurity}/users/', userModel).toPromise().then(x => {
@@ -44,11 +66,11 @@ export class SecurityService {
               }
             });
           } else {
-              reject(new ProcessResponseModel('UserAlreadyExist', ['User already exists']));
+            reject(new ProcessResponseModel('UserAlreadyExist', ['User already exists']));
           }
         }).catch(error => {
           reject(error);
         });
-      });
+    });
   }
 }
