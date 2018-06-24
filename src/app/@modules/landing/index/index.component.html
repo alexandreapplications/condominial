@@ -1,6 +1,8 @@
 <cadm-external-frame>
-    <cadm-login></cadm-login>
+    <cadm-login *ngIf="!securityService.isAuthenticated()"></cadm-login>
     <div class="main-content">
-    <button mat-raised-button (click)="subscribe()" i18n="Subscribe|Text for the open subscribe dialog button@@subscribe">Subscribe</button>
-</div>
+        <div *ngIf="!securityService.isAuthenticated()">
+            <button mat-raised-button (click)="subscribe()" i18n="Subscribe|Text for the open subscribe dialog button@@subscribe">Subscribe</button>
+        </div>
+    </div>
 </cadm-external-frame>

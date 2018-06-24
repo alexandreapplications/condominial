@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SubscribeDialogComponent } from '../../utility/dialog/subscribe-dialog/subscribe-dialog.component';
+import { SecurityService } from '../../../@services/security.service';
 
 @Component({
   selector: 'cadm-index',
@@ -9,7 +10,7 @@ import { SubscribeDialogComponent } from '../../utility/dialog/subscribe-dialog/
 })
 export class IndexComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public securityService: SecurityService, public dialog: MatDialog) { }
 
   subscribe() {
     this.dialog.open(SubscribeDialogComponent, {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecurityService } from '../../../@services/security.service';
 
 @Component({
   selector: 'cadm-internal-frame',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternalFrameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _security: SecurityService) { }
+
+  logout() {
+    this._security.logout();
+  }
 
   ngOnInit() {
   }

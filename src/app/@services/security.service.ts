@@ -35,8 +35,16 @@ export class SecurityService {
     });
   }
 
+  logout() {
+    this.userModel = null;
+  }
+
   get isAuthenticated(): boolean {
-    return true;
+    return this.userModel != null;
+  }
+
+  get currentUser(): UserModel {
+    return this.userModel;
   }
 
   doCreateSubscription(_subscribeData: SubscribeViewModel): Promise<boolean> {

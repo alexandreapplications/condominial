@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
       const password = this.loginForm.get('password').value;
 
       this._security.logon(login, password).then(x => {
+        if (this.returnUrl == null || this.returnUrl === '') {
+          this.returnUrl = '/user';
+        }
         this._router.navigate([decodeURI(this.returnUrl)]);
       }).catch(error => {
         error.errors.forEach(element => {
