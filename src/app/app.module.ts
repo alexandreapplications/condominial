@@ -11,7 +11,6 @@ import { CommonDataServiceService } from './@services/common-data-service.servic
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConnectionInterceptor } from './@core/connection-interceptor';
 import { SecurityService } from './@services/security.service';
-import { DashboardComponent } from './@modules/user/dashboard/dashboard.component';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 

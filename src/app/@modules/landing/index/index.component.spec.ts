@@ -2,28 +2,36 @@ import {UtilityModule} from '../../utility/utility.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IndexComponent } from './index.component';
-import { SubscribeComponent } from '../parts/subscribe/subscribe.component';
-import { MatCardModule, MatSnackBarModule, MatAutocompleteModule, MatButtonModule } from '@angular/material';
-import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatCardModule, MatSnackBarModule, MatAutocompleteModule, MatButtonModule,
+   MatFormFieldModule, MatToolbarModule, MatDialogModule } from '@angular/material';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonDataServiceService } from '../../../@services/common-data-service.service';
 import { SecurityService } from '../../../@services/security.service';
 import { ConnectionInterceptor } from '../../../@core/connection-interceptor';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from '../parts/login/login.component';
+import { ExternalFrameComponent } from '../../utility/external-frame/external-frame.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('IndexComponent', () => {
   let component: IndexComponent;
   let fixture: ComponentFixture<IndexComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IndexComponent, SubscribeComponent ],
-      imports: [ UtilityModule,
+      declarations: [ IndexComponent,
+        LoginComponent,
+        ExternalFrameComponent ],
+      imports: [ CommonModule,
         MatCardModule,
         MatButtonModule,
         MatAutocompleteModule,
         MatSnackBarModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
         HttpClientModule,
-        BrowserAnimationsModule ],
+        MatFormFieldModule,
+        MatDialogModule,
+        HttpClientModule ],
         providers: [CommonDataServiceService,
           {
             provide: HTTP_INTERCEPTORS,
@@ -33,6 +41,7 @@ describe('IndexComponent', () => {
           SecurityService]
     })
     .compileComponents();
+
   }));
 
   beforeEach(() => {
